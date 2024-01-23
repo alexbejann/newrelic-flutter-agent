@@ -225,7 +225,7 @@ Future<NewRelicHttpClientResponse> _wrapResponse(HttpClientResponse response,
   return NewRelicHttpClientResponse(response, request, timestamp, traceData,params: params);
 }
 
-class NewRelicHttpClientRequest extends HttpClientRequest {
+class NewRelicHttpClientRequest implements HttpClientRequest {
   final int timestamp;
   final HttpClientRequest _httpClientRequest;
   StringBuffer? _sendBuffer = StringBuffer();
@@ -386,7 +386,7 @@ class NewRelicHttpClientRequest extends HttpClientRequest {
   }
 }
 
-class NewRelicHttpClientResponse extends HttpClientResponse {
+class NewRelicHttpClientResponse implements HttpClientResponse {
   final HttpClientResponse _httpClientResponse;
   final HttpClientRequest request;
   final int timestamp;
