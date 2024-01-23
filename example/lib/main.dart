@@ -16,7 +16,7 @@ import 'package:newrelic_mobile/config.dart';
 import 'package:newrelic_mobile/network_failure.dart';
 import 'package:newrelic_mobile/newrelic_mobile.dart';
 import 'package:newrelic_mobile/newrelic_navigation_observer.dart';
-import 'package:newrelic_mobile_example/app_config.dart';
+// import 'package:newrelic_mobile_example/app_config.dart';
 
 const String readCounters = """
    query (\$id: Int) { # Define which variables will be used in the query (id)
@@ -35,9 +35,9 @@ void main() {
   var appToken = "";
 
   if (Platform.isAndroid) {
-    appToken = AppConfig.androidToken;
+    appToken = '';
   } else if (Platform.isIOS) {
-    appToken = AppConfig.iOSToken;
+    appToken = '';
   }
 
   Config config = Config(
@@ -59,7 +59,7 @@ void main() {
   });
   NewrelicMobile.instance.setMaxEventPoolSize(3000);
   NewrelicMobile.instance.setMaxEventBufferTime(200);
-  NewrelicMobile.instance.addHTTPHeadersTrackingFor(["Car","Music"]);
+  NewrelicMobile.instance.addHTTPHeadersTrackingFor(["Car", "Music"]);
 }
 
 /// The main app.
